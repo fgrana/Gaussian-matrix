@@ -2,7 +2,7 @@ package functions
 
 func (m *Matrix) MGauss() (string, []float64) {
 	for {
-		verify, i, j, b := m.lookForCerosInLower()
+		verify, i, j, b := m.lookForNextReduction()
 		if verify {
 			m.calculateTotalReduction(i, j, b)
 		} else {
@@ -13,7 +13,7 @@ func (m *Matrix) MGauss() (string, []float64) {
 	if !m.checkForUndefined() {
 		return "Incompatible", []float64{}
 	}
-	unknowns := m.calcularXYZ()
+	unknowns := m.calculateUnknowns()
 
 	return "Compatible", unknowns
 }
