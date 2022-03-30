@@ -9,11 +9,11 @@ func TestCheckForUndefinedInLine(t *testing.T) {
 		{0, 0, 0, 0}}
 	matriz := Matriz{board}
 	value := matriz.chechForUndefinedInLine(0)
-	if value != 8 {
+	if value != 12 {
 		t.Error("Error, value should be equalto. Value =", value)
 	}
 	value = matriz.chechForUndefinedInLine(1)
-	if value != 6 {
+	if value != 14 {
 		t.Error("Error, value should be equalto. Value =", value)
 	}
 	value = matriz.chechForUndefinedInLine(2)

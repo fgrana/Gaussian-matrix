@@ -11,9 +11,9 @@ func TestCalcularXYZ(t *testing.T) {
 		{0, -1, 4, -2},
 		{0, 0, 1, 1}}
 	matriz := Matriz{board}
-	x, y, z := matriz.calcularXYZ()
-	if x != -4 && y != 6 && z != 1 {
-		fmt.Printf("x should be %v,is %v insted.y should be %v,is %v insted.z should be %v,is %v insted.", -4, x, 6, y, 1, z)
+	x := matriz.calcularXYZ()
+	if x[2] != -4 && x[1] != 6 && x[0] != 1 {
+		fmt.Printf("x should be %v,is %v insted.y should be %v,is %v insted.z should be %v,is %v insted.", -4, x[2], 6, x[1], 1, x[0])
 		t.Error("should be")
 	}
 }
