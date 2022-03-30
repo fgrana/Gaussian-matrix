@@ -12,21 +12,21 @@ func check(e error) {
 		panic(e)
 	}
 }
-func Reader() functions.Matriz {
+func FileToMatrix() functions.Matrix {
 
-	dat, err := os.ReadFile("matriz.txt")
+	dat, err := os.ReadFile("matrix.txt")
 	check(err)
 	s := strings.Split(string(dat), "\n")
 	board := [][]float64{}
 	for _, v := range s {
 		s1 := strings.Split(v, ",")
-		miniBoard := []float64{}
+		line := []float64{}
 		for _, v1 := range s1 {
-			f, _ := strconv.ParseFloat(v1, 64)
-			miniBoard = append(miniBoard, f)
+			variable, _ := strconv.ParseFloat(v1, 64)
+			line = append(line, variable)
 		}
-		board = append(board, miniBoard)
+		board = append(board, line)
 	}
-	var m = functions.Matriz{board}
+	var m = functions.Matrix{board}
 	return m
 }

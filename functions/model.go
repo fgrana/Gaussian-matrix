@@ -1,5 +1,5 @@
 package functions
 
-type Matriz struct {
+type Matrix struct {
 	Board [][]float64
 }

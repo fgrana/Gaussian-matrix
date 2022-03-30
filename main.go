@@ -7,14 +7,14 @@ import (
 )
 
 func main() {
-	m := reader.Reader()
-	verify, incognitas := m.MGauss()
-	f, err := os.Create("matrizRespuesta.txt")
+	m := reader.FileToMatrix()
+	verify, unknowns := m.MGauss()
+	f, err := os.Create("matrixAnswer.txt")
 	if err != nil {
 		fmt.Println(err)
 	}
 	defer f.Close()
-	err = m.EscribirSolucion(f, verify, incognitas)
+	err = m.AnswerToFile(f, verify, unknowns)
 	if err != nil {
 		fmt.Println(err)
 	}

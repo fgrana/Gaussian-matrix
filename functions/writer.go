@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-func (m *Matriz) EscribirSolucion(f *os.File,verify string, incognitas []float64) error {
+func (m *Matrix) AnswerToFile(f *os.File, verify string, Unknowns []float64) error {
 
 	if verify == "Incompatible" {
 		_, err := f.WriteString("incompatible\n")
@@ -14,9 +14,9 @@ func (m *Matriz) EscribirSolucion(f *os.File,verify string, incognitas []float64
 		}
 	} else {
 		count := 0
-		for i := len(incognitas) - 1; i > -1; i-- {
+		for i := len(Unknowns) - 1; i > -1; i-- {
 			count++
-			_,err1:=fmt.Fprintf(f,"incognita numero %v = %v \n", count, incognitas[i])
+			_, err1 := fmt.Fprintf(f, "Unknown number %v = %v \n", count, Unknowns[i])
 			if err1 != nil {
 				return err1
 			}
@@ -24,7 +24,7 @@ func (m *Matriz) EscribirSolucion(f *os.File,verify string, incognitas []float64
 		}
 	}
 	for i := 0; i < len(m.Board); i++ {
-		_, err1 := fmt.Fprintf(f," %v \n", m.Board[i])
+		_, err1 := fmt.Fprintf(f, " %v \n", m.Board[i])
 		if err1 != nil {
 			return err1
 		}

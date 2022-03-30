@@ -1,10 +1,10 @@
 package functions
 
-func (m *Matriz) MGauss() (string, []float64) {
+func (m *Matrix) MGauss() (string, []float64) {
 	for {
-		verify, i, j, b := m.buscarAbajoCompleto()
+		verify, i, j, b := m.lookForCerosInLower()
 		if verify {
-			m.calcularReduccionTotal(i, j, b)
+			m.calculateTotalReduction(i, j, b)
 		} else {
 			break
 		}
@@ -13,7 +13,7 @@ func (m *Matriz) MGauss() (string, []float64) {
 	if !m.checkForUndefined() {
 		return "Incompatible", []float64{}
 	}
-	incognitas := m.calcularXYZ()
+	unknowns := m.calcularXYZ()
 
-	return "Compatible", incognitas
+	return "Compatible", unknowns
 }

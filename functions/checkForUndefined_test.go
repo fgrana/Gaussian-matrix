@@ -7,7 +7,7 @@ func TestCheckForUndefinedInLine(t *testing.T) {
 		{1, 3, 4, 4},
 		{0, 1, 5, 8},
 		{0, 0, 0, 0}}
-	matriz := Matriz{board}
+	matriz := Matrix{board}
 	value := matriz.chechForUndefinedInLine(0)
 	if value != 12 {
 		t.Error("Error, value should be equalto. Value =", value)
@@ -27,7 +27,7 @@ func TestCheckForUndefined(t *testing.T) {
 		{1, 3, 4, 4},
 		{0, 1, 5, 8},
 		{0, 0, 0, 0}}
-	matriz := Matriz{board}
+	matriz := Matrix{board}
 	if matriz.checkForUndefined() {
 		t.Error("should be true")
 	}
@@ -35,7 +35,7 @@ func TestCheckForUndefined(t *testing.T) {
 		{1, 3, 4, 4},
 		{0, 1, 5, 8},
 		{0, 1, 2, 1}}
-	matriz = Matriz{board}
+	matriz = Matrix{board}
 	if !matriz.checkForUndefined() {
 		t.Error("should be false")
 	}
